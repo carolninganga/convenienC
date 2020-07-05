@@ -6,12 +6,13 @@ import { Input, FormBtn } from '../../components/Form';
 import Card from '../../components/Card';
 import styles from './style.css';
 
-class Login extends Component {
+class BusinessAuthentication extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email: '',
-			password: ''
+			name: '',
+            zipcode: '',
+            city: ''
 		};
 	}
 
@@ -24,16 +25,17 @@ class Login extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
-		if (this.state.email && this.state.password) {
-			console.log(this.state.email);
+		if (this.state.name && this.state.zipcode && this.state.city) {
+			console.log(this.state.name);
 
 			// set loading state
 			this.props.setLoading(true);
 
 			userAPI
-				.login({
-					email: this.state.email,
-					password: this.state.password
+				.yelpAuthentication({
+					name: this.state.name,
+                    zipcode: this.state.zipcode,
+                    city: this.state.city
 				})
 				.then(res => {
 					if (res.status === 200) {
@@ -58,27 +60,34 @@ class Login extends Component {
 			<Container fluid>
 				<Row>
 					<Col size='12'>
-						<Card title='Login'>
+						<Card title='BusinessAuthentication'>
 							<form className={styles.form} onSubmit={this.handleFormSubmit}>
 								<Input
-									value={this.state.email}
+									value={this.state.name}
 									onChange={this.handleInputChange}
-									name='email'
-									placeholder='email (required)'
+									name='name'
+									placeholder='name (required)'
 								/>
 								<Input
-									value={this.state.password}
+									value={this.state.zipcode}
 									onChange={this.handleInputChange}
-									name='password'
+									name='zipcode'
 									placeholder='(required)'
-									type='password'
+									type='num'
+								/>
+                                <Input
+									value={this.state.city}
+									onChange={this.handleInputChange}
+									name='city'
+									placeholder='(required)'
+									type='text'
 								/>
 
 								<FormBtn
-									disabled={!(this.state.email && this.state.password)}
+									disabled={!(this.state.name && this.state.zipcode && this.state.city)}
 									onClick={this.handleFormSubmit}
 								>
-									Log in
+									Business Authentication
 								</FormBtn>
 							</form>
 						</Card>
@@ -86,10 +95,10 @@ class Login extends Component {
 				</Row>
 
 				{/* Redirect on authentication */}
-				{this.props.user && this.props.user._id ? <Redirect to='/home' /> : <></>}
+				{this.props.user && this.props.user._id ? <Redirect to='/login' /> : <></>}
 			</Container>
 		);
 	}
 }
 
-export default Login;
+export default BusinessAuthentication;
