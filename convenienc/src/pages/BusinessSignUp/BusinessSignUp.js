@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import styles from './style.module.css';
+import styles from './style.css';
 import { user as userAPI } from '../../utils/API';
 import { Redirect } from 'react-router-dom';
 import { Col, Row, Container } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
 import Card from '../../components/Card';
 
-class Signup extends Component {
+
+
+class BusinessSignUp extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -126,5 +128,5 @@ class Signup extends Component {
 	}
 }
 
-export default Signup;
+export default BusinessSignUp;
 

@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./style.module.css";
+import styles from "./style.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-export function DeleteBtn(props) {
+function ClickBtn(props) {
   return (
-    <span className={ styles["delete-btn"] } {...props} role="button" tabIndex="0">
-      ✗
+    <span className={ styles["click-btn"] } {...props} role="button" tabIndex="0">
+      Business SignUp
     </span>
   );
 }
@@ -18,3 +18,5 @@ export function Button(props) {
     </span>
   );
 }
+
+export default ClickBtn;
