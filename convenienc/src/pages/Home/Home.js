@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import styles from'./styles.css';
 import { FormBtn } from '../../components/Form';
 import { Redirect } from 'react-router-dom';
+;
 // import businessSignUp from '../BusinessSignUp/BusinessSignUp';
 
 
@@ -24,15 +26,21 @@ class Home extends Component {
 
     render() {
     return (
-        <div>
+        <div className = "singup">
             <FormBtn
 			    disabled={!(this.state.email && this.state.password)}
-				onClick={this.handleFormSubmit}
+				className={styles.singup}onClick={this.handleFormSubmit}
 				>
-				Business SignUp
+				
+                <button type="submit" onClick={this.handleFormSubmit} className="btn btn-success">
+                Business SignUp
+        </button>
 		    </FormBtn>
+        
             {this.props.user && this.props.user._id ? <Redirect to='/home' /> : <></>}
         </div>   
+       
+       
     )}   
 };
  

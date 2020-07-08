@@ -9,6 +9,8 @@ import Card from '../../components/Card';
 
 
 class BusinessSignUp extends Component {
+
+	
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -111,10 +113,12 @@ class BusinessSignUp extends Component {
 
 								<FormBtn
 									disabled={!(this.state.email && this.state.password && this.state.passwordConf)}
+									onClick={this.handleFormSubmit}
 									theme='primary'
 								>
 									signup
 								</FormBtn>
+								
 							</form>
 						</Card>
 					</Col>
