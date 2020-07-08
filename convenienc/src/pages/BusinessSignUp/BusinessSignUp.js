@@ -111,7 +111,7 @@ class BusinessSignUp extends Component {
 
 								<FormBtn
 									disabled={!(this.state.email && this.state.password && this.state.passwordConf)}
-									theme='primary'
+									theme='primary' onClick={this.handleFormSubmit}
 								>
 									signup
 								</FormBtn>

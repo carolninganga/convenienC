@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { FormBtn } from '../../components/Form';
+//import { FormBtn } from '../../components/Form';
 import { Redirect } from 'react-router-dom';
+import ClickBtn from '../../components/ClickBtn';
 // import businessSignUp from '../BusinessSignUp/BusinessSignUp';
 
 
@@ -25,12 +26,12 @@ class Home extends Component {
     render() {
     return (
         <div>
-            <FormBtn
+            <ClickBtn
 			    disabled={!(this.state.email && this.state.password)}
 				onClick={this.handleFormSubmit}
 				>
 				Business SignUp
-		    </FormBtn>
+		    </ClickBtn>
             {this.props.user && this.props.user._id ? <Redirect to='/home' /> : <></>}
         </div>   
     )}   

@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from './logo.svg';
-import LoginBtn from "./components/LoginBtn";
+//import LoginBtn from "./components/LoginBtn";
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Route } from 'react-router-dom';
 import BusinessSignUp from './pages/BusinessSignUp/BusinessSignUp';
@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <LoginBtn /> 
+      {/* <LoginBtn />  */}
       <Route exact path='/' component={Home} />
       <Route path='/businessSignUp' component={BusinessSignUp} />
       <Route path='/ourTeam' component={OurTeam} />

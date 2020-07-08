@@ -5,9 +5,9 @@ import styles from "./style.css";
 // That way we don't have to define them all individually
 function ClickBtn(props) {
   return (
-    <span className={ styles["click-btn"] } {...props} role="button" tabIndex="0">
-      Business SignUp
-    </span>
+   
+    <a target='_blank' rel="noopener noreferrer" href="/businessSignUp" className="btn waves-effect waves-light white-text">Business Signup</a>
+
   );
 }
 
