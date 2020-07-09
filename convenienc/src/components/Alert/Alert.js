@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './style.css'
+import './alert-style.css'
 
 function Alert(props) {
   const [fadeState, setFadeState] = useState("fade");
