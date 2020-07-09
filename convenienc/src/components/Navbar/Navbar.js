@@ -1,8 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './style.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./navbar-style.css";
+import Logo from "./logo.PNG";
 
 function Navbar() {
+<<<<<<< HEAD
     return (
         <nav>
             <div className="container">
@@ -18,6 +20,29 @@ function Navbar() {
         </nav>
 
     )
+=======
+  return (
+    <nav>
+      <div className="container">
+        <img src={Logo} alt="logo" />
+        <ul className="right">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+          <li>
+            <Link to="/ourTeam">OurTeam</Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+>>>>>>> a065f2a94bb9f05215c0dd5357dbe4b9bccc82f6
 }
 
 export default Navbar;
