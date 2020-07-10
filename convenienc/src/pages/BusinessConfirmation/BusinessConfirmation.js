@@ -1,23 +1,27 @@
 import React, { Component } from "react";
 import styles from "./businessConfirmation-style.css";
-import { user as userAPI } from "../../utils/API";
-import { Redirect } from "react-router-dom";
+// import { user as userAPI } from "../../utils/API";
+// import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input } from "../../components/Form/Form";
-import Login from "../../pages/Login/Login";
+// import Login from "../../pages/Login/Login";
 import Card from "../../components/Card/Card";
+import API from "../../utils/YelpAPI";
 
-class BusinessConfirmation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      zipcode: "",
-      city: "",
-    };
+// let businessSearch = [];
+class Search extends React.Component {
+  state = {
+    name: "",
+    city: "",
+    zip_code: "",
+  };
+  // run this when page is loaded.
+  componentDidMount() {
+    // get random list of employees to populate the page.
+    API.get().then((response) => {
+      console.log(response);
+    });
   }
-
-  componentDidMount() {}
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,44 +43,57 @@ class BusinessConfirmation extends Component {
         message: "Please fill all required fields",
       });
     }
-
-    // // validate pass === to pass confirmation.
-    // if(this.state.password.trim() !== this.state.passwordConf.trim()) {
-    // 	  this.props.setLoading(false);
-    //   // set error alert to user
-    //   return this.props.setAlertInfo({theme:"warning", message:"Your password fields do not match."})
-    // }
-
-    // if good to go
-    userAPI
-      .confirmation({
-        username: this.state.name.trim(),
-        zipcode: this.state.zipcode.trim(),
-        city: this.state.city.trim(),
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          this.props.setUser(res.data);
-          this.props.setLoading(false);
-          return <Redirect to="/home" />;
-        } else {
-          this.props.setLoading(false);
-          this.props.setAlertInfo({
-            theme: "warning",
-            message: res.response.data,
-          });
-        }
-      })
-      .catch((err) => {
-        this.props.setLoading(false);
-        console.log(err.response.data);
-        this.props.setAlertInfo({
-          theme: "warning",
-          message: err.response.data,
-        });
-      });
   };
+
+  // class BusinessConfirmation extends Component {
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {
+  //       name: "",
+  //       zipcode: "",
+  //       city: "",
+  //     };
+  //   }
+
+  // componentDidMount() {}
+
+  // // validate pass === to pass confirmation.
+  // if(this.state.password.trim() !== this.state.passwordConf.trim()) {
+  // 	  this.props.setLoading(false);
+  //   // set error alert to user
+  //   return this.props.setAlertInfo({theme:"warning", message:"Your password fields do not match."})
+  // }
+
+  // if good to go
+  //   userAPI
+  //     .confirmation({
+  //       username: this.state.name.trim(),
+  //       zipcode: this.state.zipcode.trim(),
+  //       city: this.state.city.trim(),
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //       if (res.status === 200) {
+  //         this.props.setUser(res.data);
+  //         this.props.setLoading(false);
+  //         return <Redirect to="/home" />;
+  //       } else {
+  //         this.props.setLoading(false);
+  //         this.props.setAlertInfo({
+  //           theme: "warning",
+  //           message: res.response.data,
+  //         });
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       this.props.setLoading(false);
+  //       console.log(err.response.data);
+  //       this.props.setAlertInfo({
+  //         theme: "warning",
+  //         message: err.response.data,
+  //       });
+  //     });
+  // };
 
   render() {
     return (
@@ -106,8 +123,15 @@ class BusinessConfirmation extends Component {
                   placeholder="enter city"
                   type="text"
                 />
-
-                <Login
+                <button
+                  onClick={this.setState}
+                  className="btn btn-primary"
+                  type="button"
+                  id="button"
+                >
+                  Submit
+                </button>
+                {/* <Login
                   disabled={
                     !(
                       this.state.email &&
@@ -119,20 +143,20 @@ class BusinessConfirmation extends Component {
                   onClick={this.handleFormSubmit}
                 >
                   Login
-                </Login>
+                </Login> */}
               </form>
             </Card>
           </Col>
         </Row>
         {/* redirect on authenticated */}
-        {this.props.user && this.props.user._id ? (
+        {/* {this.props.user && this.props.user._id ? (
           <Redirect to="/home" />
         ) : (
           <div></div>
-        )}
+        )} */}
       </Container>
     );
   }
 }
 
-export default BusinessConfirmation;
+export default Search;
