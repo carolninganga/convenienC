@@ -9,7 +9,6 @@ function ClickBtn(props) {
       <div>
         <div className="home-buttons">
           <a
-            target="_blank"
             rel="noopener noreferrer"
             href="/businessSignUp"
             className="btn waves-effect waves-light white-text"
@@ -19,7 +18,6 @@ function ClickBtn(props) {
         </div>
         <div className="home-buttons">
           <a
-            target="_blank"
             rel="noopener noreferrer"
             href="/userSignUp"
             className="btn waves-effect waves-light white-text"
@@ -29,7 +27,6 @@ function ClickBtn(props) {
         </div>
         <div className="home-buttons">
           <a
-            target="_blank"
             rel="noopener noreferrer"
             href="/login"
             className="btn waves-effect waves-light white-text"
