@@ -84,62 +84,65 @@ class BusinessSignUp extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="12">
-            <Card title="Signup">
-              <form className={styles.form} onSubmit={this.handleFormSubmit}>
-                <Input
-                  value={this.state.username}
-                  onChange={this.handleInputChange}
-                  name="username"
-                  placeholder="username (required)"
-                />
-                <Input
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                  name="email"
-                  placeholder="email (required)"
-                />
-                <Input
-                  value={this.state.password}
-                  onChange={this.handleInputChange}
-                  name="password"
-                  placeholder="(required)"
-                  type="password"
-                />
-                <Input
-                  value={this.state.passwordConf}
-                  onChange={this.handleInputChange}
-                  name="passwordConf"
-                  placeholder="(required)"
-                  type="password"
-                />
-
-                <FormBtn
-                  disabled={
-                    !(
-                      this.state.email &&
-                      this.state.password &&
-                      this.state.passwordConf
-                    )
-                  }
-                  theme="primary"
-                  onClick={this.handleFormSubmit}
-                >
-                  signup
-                </FormBtn>
-              </form>
-            </Card>
-          </Col>
-        </Row>
-        {/* redirect on authenticated */}
-        {this.props.user && this.props.user._id ? (
-          <Redirect to="/home" />
-        ) : (
-          <div></div>
-        )}
-      </Container>
+      <div className="input-form">
+        <Container fluid>
+          <Row>
+            <Col size="12">
+              <Card title="SIGNUP">
+                <form className={styles.form} onSubmit={this.handleFormSubmit}>
+                  <Input
+                    value={this.state.username}
+                    onChange={this.handleInputChange}
+                    name="username"
+                    placeholder="username (required)"
+                  />
+                  <Input
+                    value={this.state.email}
+                    onChange={this.handleInputChange}
+                    name="email"
+                    placeholder="email (required)"
+                  />
+                  <Input
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password"
+                    placeholder="(required)"
+                    type="password"
+                  />
+                  <Input
+                    value={this.state.passwordConf}
+                    onChange={this.handleInputChange}
+                    name="passwordConf"
+                    placeholder="(required)"
+                    type="password"
+                  />
+                  <span className="linkBtn">
+                    <FormBtn
+                      disabled={
+                        !(
+                          this.state.email &&
+                          this.state.password &&
+                          this.state.passwordConf
+                        )
+                      }
+                      theme="primary"
+                      onClick={this.handleFormSubmit}
+                    >
+                      SIGNUP
+                    </FormBtn>
+                  </span>
+                </form>
+              </Card>
+            </Col>
+          </Row>
+          {/* redirect on authenticated */}
+          {this.props.user && this.props.user._id ? (
+            <Redirect to="/home" />
+          ) : (
+            <div></div>
+          )}
+        </Container>
+      </div>
     );
   }
 }

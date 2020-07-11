@@ -1,5 +1,19 @@
 body {
-  background-color: rgb(83, 46, 126);
+  /* background-color: rgba(83, 46, 126, 0.349); */
+  /* background-color: white; */
+  animation: slide 10s infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-color: rgba(83, 46, 126, 0.425);
+  }
+  50% {
+    background-color: rgba(83, 46, 126, 0.76);
+  }
+  100% {
+    background-color: rgba(83, 46, 126, 0.418);
+  }
 }
 
 .home-page {
