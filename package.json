@@ -1,0 +1,35 @@
+{
+  "name": "convenienC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientisntall": "npm install --prefix client",
+    "build": "cd client && npm run build", 
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolninganga/convenienC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carolninganga/convenienC/issues"
+  },
+  "homepage": "https://github.com/carolninganga/convenienC#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.0",
+    "mongoose": "^5.9.23",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7"
+  }
+}
