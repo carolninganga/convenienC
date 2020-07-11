@@ -6,7 +6,7 @@ import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input } from "../../components/Form/Form";
 // import Login from "../../pages/Login/Login";
 import Card from "../../components/Card/Card";
-import API from "../../utils/YelpAPI";
+// import API from "../../utils/YelpAPI";
 
 // let businessSearch = [];
 class Search extends React.Component {
@@ -16,12 +16,12 @@ class Search extends React.Component {
     zip_code: "",
   };
   // run this when page is loaded.
-  componentDidMount() {
-    // get random list of employees to populate the page.
-    API.get().then((response) => {
-      console.log(response);
-    });
-  }
+  // componentDidMount() {
+  //   // get random list of employees to populate the page.
+  //   API.get().then((response) => {
+  //     console.log(response);
+  //   });
+  // }
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
