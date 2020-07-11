@@ -1,17 +1,15 @@
-const axios = require("axios");
+import axios from 'axios';
+export default {
+    search: (term, latitude, longitude,location) =>
+        axios({
+            'method': 'GET',
+            // 'url': `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${Number(latitude)}&longitude=${Number(longitude)}?location=${location}`,
+            'url': `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${location}`,
 
-let API_KEY =
-  "TZFaZDugKwuoKMBXizFVUyyqvU6JhT4-oJAl2hdAZX3tPpghYt72ZPbFVBMYt-aJm60cX7ByYgt5QFI8jMbj6nezMnL5qkjWMBznvNsal7NsCYebNOU4_ignygYFX3Yx";
+            'headers': {
+                'Content-Type': 'application/json',
+                 'Authorization': `Bearer ${process.env.REACT_APP_YELP_API_KEY}` 
+            }
+        })
+}
 
-// REST
-let yelpREST = axios.create({
-  baseURL: "https://api.yelp.com/v3/",
-  headers: {
-    Authorization: `Bearer ${API_KEY}`,
-    "Content-type": "application/json",
-  },
-});
-
-yelpREST(ENDPOINT, { params: { key: value } }).then(({ data }) => {
-  // Do something with the data
-});
