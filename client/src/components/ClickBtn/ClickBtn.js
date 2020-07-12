@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./clickBtn-style.css";
 
 // The ...props means, spread all of the passed props onto this element
@@ -8,13 +9,11 @@ function ClickBtn(props) {
     <div>
       <div>
         <div className="home-buttons">
-          <a
-            rel="noopener noreferrer"
-            href="/businessSignUp"
-            className="btn waves-effect waves-light white-text"
-          >
-            Business Signup
-          </a>
+          <Link to="/businessSignUp">
+            <div className="btn waves-effect waves-light white-text">
+              Business Signup
+            </div>
+          </Link>
         </div>
         <div className="home-buttons">
           <a

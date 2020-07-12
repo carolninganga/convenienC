@@ -6,15 +6,12 @@ import "./home-style.css";
 // import businessSignUp from '../BusinessSignUp/BusinessSignUp';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      username: "",
-      password: "",
-      passwordConf: "",
-    };
-  }
+  state = {
+    email: "",
+    username: "",
+    password: "",
+    passwordConf: "",
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -24,6 +21,7 @@ class Home extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <div className="home-page">
