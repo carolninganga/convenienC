@@ -19,15 +19,15 @@ class BusinessSignUp extends Component {
 		};
 	}
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      username: "",
-      password: "",
-      passwordConf: "",
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     email: "",
+  //     username: "",
+  //     password: "",
+  //     passwordConf: "",
+  //   };
+  // }
 
 
   componentDidMount() {}
