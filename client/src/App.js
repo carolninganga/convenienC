@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BusinessSignUp from "./pages/BusinessSignUp/BusinessSignUp";
 import BusinessConfirmation from "./pages/BusinessConfirmation/BusinessConfirmation";
+import BusinessConfirmationMessage from "./pages/BusinessConfirmationMessage/BusinessConfirmationMessage";
 import UserSignUp from "./pages/UserSignUp/UserSignUp";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home";
@@ -55,6 +56,8 @@ class App extends React.Component {
             component={BusinessConfirmation}
           />
           <Route exact path="/userSignUp" component={UserSignUp} />
+          <Route exact path="/businessConfirmationMessage" component={BusinessConfirmationMessage} />
+
           <Route exact path="/login" component={Login} />
           <Route exact path="/ourTeam" component={OurTeam} />
         </Switch>

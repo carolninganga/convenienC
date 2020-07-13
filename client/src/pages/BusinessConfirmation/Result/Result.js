@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 //import './style.css';
 
 const gridContainerStyle = {
@@ -29,7 +30,7 @@ function Result(props) {
                         <p className="card-text">{item.location.address1} {item.location.city} {item.location.state} {item.location.zip_code}</p>
                         {/* <p className="card-text">{</p> */}
                         <span className="rating">Rating:{item.rating}</span>{"   "}
-                        <Link to="/businessConfirmationMessage" className="btn btn-primary"><span>Click Here To Verify Business</span></a>
+                        <Link to="/businessConfirmationMessage" className="btn btn-primary"><span>Click Here To Verify Business</span></Link>
                       </div>
 
                 </div>
