@@ -7,7 +7,7 @@ class BusinessComfirmation extends Component {
   state = {
     result: [],
     term: "",
-    location: "",
+    location: ""
   };
   componentDidMount() {
     this.searchStore("coffee", "Manhattan");
@@ -31,9 +31,9 @@ class BusinessComfirmation extends Component {
   };
   render() {
     return (
-      <div className="container h-100">
+      <div className="container">
         <div className="row h-100 justify-content-center align-items-center">
-          <form className="col-10">
+          <form className="col-12">
             <Search
               term={this.state.term}
               location={this.state.location}

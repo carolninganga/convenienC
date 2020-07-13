@@ -18,7 +18,7 @@ function getBusiness(props) {
           onChange={props.handleInputChange}
           value={props.value}
           name="term"
-          autoComplete = "off" className="form-control" id="searchTerm" placeholder="Search Item" />
+          autoComplete = "off" className="form-control" id="searchTerm" placeholder="Search Business Name" />
         <input type="text" 
           onChange={props.handleInputChange}
           value={props.value}
