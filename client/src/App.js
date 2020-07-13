@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BusinessSignUp from "./pages/BusinessSignUp/BusinessSignUp";
 import BusinessConfirmation from "./pages/BusinessConfirmation/BusinessConfirmation";
-import BusinessConfirmationMessage from "./pages/BusinessConfirmationMessage/BusinessConfirmationMessage";
+import BusinessConfirmationMessage from "./pages/ConfirmedMessagePage/ConfirmedMessagePage";
 import UserSignUp from "./pages/UserSignUp/UserSignUp";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home";
