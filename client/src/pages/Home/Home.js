@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import { FormBtn } from '../../components/Form';
-import { Redirect } from "react-router-dom";
+//import { Redirect } from "react-router-dom";
 import HomeButtons from "../../components/HomeButtons/HomeButtons";
 import "./home-style.css";
 // import businessSignUp from '../BusinessSignUp/BusinessSignUp';
