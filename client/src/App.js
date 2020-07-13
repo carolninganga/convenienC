@@ -57,7 +57,6 @@ class App extends React.Component {
           />
           <Route exact path="/userSignUp" component={UserSignUp} />
           <Route exact path="/businessConfirmationMessage" component={BusinessConfirmationMessage} />
-
           <Route exact path="/login" component={Login} />
           <Route exact path="/ourTeam" component={OurTeam} />
         </Switch>
