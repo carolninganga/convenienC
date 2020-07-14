@@ -3,10 +3,12 @@ import styles from "./businessSignUp-style.css";
 import { user as userAPI } from "../../utils/API";
 import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, FormBtn } from "../../components/Form/Form";
+import { Input } from "../../components/Form/Form";
 import Card from "../../components/Card/Card";
+import { Link } from "react-router-dom";
 
 class BusinessSignUp extends Component {
+<<<<<<< HEAD
 
 	
 	constructor(props) {
@@ -31,6 +33,15 @@ class BusinessSignUp extends Component {
 
 
   componentDidMount() {}
+=======
+  state = {
+      email: "",
+      username: "",
+      password: "",
+      passwordConf: "",
+    };
+  
+>>>>>>> 94d20f9e1a5d322c4e23c966dc7efa97ed108d7f
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -41,7 +52,7 @@ class BusinessSignUp extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    this.props.setLoading(true);
+    if(this.state.email && this.state.username && this.state.password, this.state.passwordConf)
 
     // validate all fields
     if (!this.state.email || !this.state.password || !this.state.passwordConf) {
@@ -96,6 +107,7 @@ class BusinessSignUp extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
 <<<<<<< HEAD:convenienc/src/pages/BusinessSignUp/BusinessSignUp.js
       <Container fluid>
@@ -155,7 +167,7 @@ class BusinessSignUp extends Component {
           <Row>
             <Col size="12">
               <Card title="SIGNUP">
-                <form className={styles.form} onSubmit={this.handleFormSubmit}>
+                <form className={styles.form}>
                   <Input
                     value={this.state.username}
                     onChange={this.handleInputChange}
@@ -183,19 +195,15 @@ class BusinessSignUp extends Component {
                     type="password"
                   />
                   <span className="linkBtn">
-                    <FormBtn
-                      disabled={
-                        !(
-                          this.state.email &&
-                          this.state.password &&
-                          this.state.passwordConf
-                        )
-                      }
-                      theme="primary"
-                      onClick={this.handleFormSubmit}
-                    >
-                      SIGNUP
-                    </FormBtn>
+                  <div>
+                    <Link to="/businessConfirmation">
+                        <div className="btn waves-effect waves-light white-text">
+                          Business Confirmation
+                        </div>
+                    </Link>
+                  </div>
+                      {/* Confirm Business
+                    </ClickBtn> */}
                   </span>
                 </form>
               </Card>
@@ -203,7 +211,7 @@ class BusinessSignUp extends Component {
           </Row>
           {/* redirect on authenticated */}
           {this.props.user && this.props.user._id ? (
-            <Redirect to="/home" />
+            <Redirect to="/Login" />
           ) : (
             <div></div>
           )}

@@ -50,11 +50,7 @@ UserSchema.methods.setFullName = function() {
   return this.fullName;
 };
 
-UserSchema.methods.lastUpdatedDate = function() {
-  this.lastUpdated = Date.now();
 
-  return this.lastUpdated;
-};
 
 const User = mongoose.model("User", UserSchema);
 
