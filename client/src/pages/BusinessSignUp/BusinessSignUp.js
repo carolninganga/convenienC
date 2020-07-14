@@ -14,7 +14,6 @@ class BusinessSignUp extends Component {
       password: "",
       passwordConf: "",
     };
-  
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -82,63 +81,57 @@ class BusinessSignUp extends Component {
   render() {
     console.log(this.props)
     return (
-      <div className="input-form">
-        <Container fluid>
-          <Row>
-            <Col size="12">
-              <Card title="SIGNUP">
-                <form className={styles.form}>
-                  <Input
-                    value={this.state.username}
-                    onChange={this.handleInputChange}
-                    name="username"
-                    placeholder="username (required)"
-                  />
-                  <Input
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
-                    name="email"
-                    placeholder="email (required)"
-                  />
-                  <Input
-                    value={this.state.password}
-                    onChange={this.handleInputChange}
-                    name="password"
-                    placeholder="(required)"
-                    type="password"
-                  />
-                  <Input
-                    value={this.state.passwordConf}
-                    onChange={this.handleInputChange}
-                    name="passwordConf"
-                    placeholder="(required)"
-                    type="password"
-                  />
-                  <span className="linkBtn">
-                  <div>
-                    <Link to="/businessConfirmation">
-                        <div className="btn waves-effect waves-light white-text">
-                          Business Confirmation
-                        </div>
-                    </Link>
-                  </div>
-                      {/* Confirm Business
-                    </ClickBtn> */}
-                  </span>
-                </form>
-              </Card>
-            </Col>
-          </Row>
-          {/* redirect on authenticated */}
-          {this.props.user && this.props.user._id ? (
-            <Redirect to="/Login" />
-          ) : (
-            <div></div>
-          )}
-        </Container>
-      </div>
-    );
-  }
+      <Container fluid>
+        <Row>
+          <Col size="12">
+            <Card title="Signup">
+              <form className={styles.form} onSubmit={this.handleFormSubmit}>
+                <Input
+                  value={this.state.username}
+                  onChange={this.handleInputChange}
+                  name="username"
+                  placeholder="username (required)"
+                />
+                <Input
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  name="email"
+                  placeholder="email (required)"
+                />
+                <Input
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password"
+                  placeholder="(required)"
+                  type="password"
+                />
+                <Input
+                  value={this.state.passwordConf}
+                  onChange={this.handleInputChange}
+                  name="passwordConf"
+                  placeholder="(required)"
+                  type="password"
+                />
+
+								<FormBtn
+									disabled={!(this.state.email && this.state.password && this.state.passwordConf)}
+									onClick={this.handleFormSubmit}
+									theme='primary'
+								>
+									signup
+								</FormBtn>
+								
+							</form>
+						</Card>
+					</Col>
+				</Row>
+				{/* redirect on authenticated */}
+        { this.props.user && this.props.user._id 
+          ?  <Redirect to='/home' /> 
+          :  <div></div> }
+			</Container>
+		);
+	}
 }
 
 export default BusinessSignUp;
