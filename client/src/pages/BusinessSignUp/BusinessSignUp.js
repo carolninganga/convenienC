@@ -8,40 +8,12 @@ import Card from "../../components/Card/Card";
 import { Link } from "react-router-dom";
 
 class BusinessSignUp extends Component {
-<<<<<<< HEAD
-
-	
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: '',
-			username: '',
-			password: '',
-			passwordConf: ''
-		};
-	}
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     email: "",
-  //     username: "",
-  //     password: "",
-  //     passwordConf: "",
-  //   };
-  // }
-
-
-  componentDidMount() {}
-=======
   state = {
       email: "",
       username: "",
       password: "",
       passwordConf: "",
     };
-  
->>>>>>> 94d20f9e1a5d322c4e23c966dc7efa97ed108d7f
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -109,7 +81,6 @@ class BusinessSignUp extends Component {
   render() {
     console.log(this.props)
     return (
-<<<<<<< HEAD:convenienc/src/pages/BusinessSignUp/BusinessSignUp.js
       <Container fluid>
         <Row>
           <Col size="12">
@@ -161,65 +132,6 @@ class BusinessSignUp extends Component {
 			</Container>
 		);
 	}
-=======
-      <div className="input-form">
-        <Container fluid>
-          <Row>
-            <Col size="12">
-              <Card title="SIGNUP">
-                <form className={styles.form}>
-                  <Input
-                    value={this.state.username}
-                    onChange={this.handleInputChange}
-                    name="username"
-                    placeholder="username (required)"
-                  />
-                  <Input
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
-                    name="email"
-                    placeholder="email (required)"
-                  />
-                  <Input
-                    value={this.state.password}
-                    onChange={this.handleInputChange}
-                    name="password"
-                    placeholder="(required)"
-                    type="password"
-                  />
-                  <Input
-                    value={this.state.passwordConf}
-                    onChange={this.handleInputChange}
-                    name="passwordConf"
-                    placeholder="(required)"
-                    type="password"
-                  />
-                  <span className="linkBtn">
-                  <div>
-                    <Link to="/businessConfirmation">
-                        <div className="btn waves-effect waves-light white-text">
-                          Business Confirmation
-                        </div>
-                    </Link>
-                  </div>
-                      {/* Confirm Business
-                    </ClickBtn> */}
-                  </span>
-                </form>
-              </Card>
-            </Col>
-          </Row>
-          {/* redirect on authenticated */}
-          {this.props.user && this.props.user._id ? (
-            <Redirect to="/Login" />
-          ) : (
-            <div></div>
-          )}
-        </Container>
-      </div>
-    );
-  }
->>>>>>> 0988ff050b8eecc2a50b5235b01c2bdc6c25b6e9:client/src/pages/BusinessSignUp/BusinessSignUp.js
 }
 
 export default BusinessSignUp;
