@@ -26,13 +26,16 @@ app.use(routes);
 
 
 
+
 // error handling, last middleware.
 //app.use((err, req, res, next) => errorHandler(err, req, res, next));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/convenienC', {
+
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
 });
+
 
 const db = require("./models")
 
