@@ -27,12 +27,15 @@ app.use(routes);
 
 
 // error handling, last middleware.
-// app.use((err, req, res, next) => errorHandler(err, req, res, next));
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/passport', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true
-// });
+//app.use((err, req, res, next) => errorHandler(err, req, res, next));
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/convenienC', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+});
+
+const db = require("./models")
+
 app.listen(PORT, function () {
   console.log(
     `\n:earth_americas: ==> API server now on http://localhost:${PORT}\n`
