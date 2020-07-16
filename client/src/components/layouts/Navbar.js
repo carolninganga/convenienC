@@ -30,13 +30,10 @@ const Navbar = ({ title, icon }) => {
     const guestLinks = (
         <Fragment>
              <li>
-                <Link to='/'>Home</Link>
-            </li>
-             <li>
-                <Link to='/register'>Business SignUp</Link>
+                <Link to='/register'>Register</Link>
             </li>
             <li>
-                <Link to='/login'>Business Login</Link>
+                <Link to='/login'>Login</Link>
             </li>
             <li>
                 <Link to='/about'>About</Link>
