@@ -1,16 +1,16 @@
-import React, { useContext, useEffect} from 'react';
+import React from 'react';
 import Businesses from '../businesses/Businesses';
 //import BusinessForm from '../businesses/BusinessForm';
 import BusinessFilter from '../businesses/BusinessFilter';
-import AuthContext from '../../context/auth/authContext';
+//import AuthContext from '../../context/auth/authContext';
 
  const LandingPage = () => {
-     const authContext = useContext(AuthContext);
+    //  const authContext = useContext(AuthContext);
 
-     useEffect(() => {
-         authContext.loadUser();
-         // eslint-disable-next-line-next
-     }, []);
+    //  useEffect(() => {
+    //      authContext.loadUser();
+    //      // eslint-disable-next-line-next
+    //  }, []);
 
 
     return (

@@ -4,134 +4,133 @@ import BusinessContext from './BusinessContext';
 import BusinessReducer from './BusinessReducer';
 
 import {
-    GET_BUSINESSES,
-    ADD_BUSINESS,
-    DELETE_BUSINESS,
-    SET_CURRENT,
-    CLEAR_CURRENT,
-    UPDATE_BUSINESS,
-    CLEAR_FILTER,
-    FILTER_BUSINESSES,
-    CLEAR_BUSINESSES,
-    BUSINESS_ERROR,
+  GET_BUSINESSES,
+  ADD_BUSINESS,
+  DELETE_BUSINESS,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  UPDATE_BUSINESS,
+  CLEAR_FILTER,
+  FILTER_BUSINESSES,
+  CLEAR_BUSINESSES,
+  BUSINESS_ERROR,
 } from '../types';
 
+const BusinessState = (props) => {
+  const initialState = {
+    businesses: null,
+    current: null,
+    filtered: null,
+    error: null,
+  };
 
-const BusinessState = props => {
-    const initialState = {
-        businesses: null,
-        current: null,
-        filtered: null,
-        error: null
+  const [state, dispatch] = useReducer(BusinessReducer, initialState);
+
+  // Get Business
+  const getBusinesses = async (business) => {
+    try {
+      const res = await axios.get('/api/businesses');
+      dispatch({ type: GET_BUSINESSES, payload: res.data });
+    } catch (err) {
+      dispatch({ type: BUSINESS_ERROR, payload: err.response.msg });
+    }
+    // business.id = "id" + Math.random().toString(16).slice(2);
+  };
+
+  // Add Business
+  const addBusiness = async (business) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
     };
 
-    const [state, dispatch] = useReducer(BusinessReducer, initialState);
-
-    // Get Business
-    const getBusinesses = async business => { 
-        try {
-            const res = await axios.get('/api/businesses'); 
-            dispatch({ type: GET_BUSINESSES, payload: res.data })
-        } catch (err) {
-            dispatch({ type: BUSINESS_ERROR, payload: err.response.msg})
-        }
-        // business.id = "id" + Math.random().toString(16).slice(2);
-       
+    try {
+      const res = await axios.post('/api/businesses', business, config);
+      dispatch({ type: ADD_BUSINESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: BUSINESS_ERROR, payload: err.response.msg });
     }
+    // business.id = "id" + Math.random().toString(16).slice(2);
+  };
 
-    // Add Business
-    const addBusiness = async business => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+  // Delete Businees
+  const deleteBusiness = async (id) => {
+    try {
+      await axios.delete(`/api/businesses/${id}`);
 
-        try {
-            const res = await axios.post('/api/businesses', business, config); 
-            dispatch({ type: ADD_BUSINESS, payload: res.data })
-        } catch (err) {
-            dispatch({ type: BUSINESS_ERROR, payload: err.response.msg})
-        }
-        // business.id = "id" + Math.random().toString(16).slice(2);
-       
+      dispatch({ type: DELETE_BUSINESS, payload: id });
+    } catch (err) {
+      dispatch({ type: BUSINESS_ERROR, payload: err.response.msg });
     }
+  };
 
-    // Delete Businees 
-    const deleteBusiness = async id => {
-        try {
-            await axios.delete(`/api/businesses/${id}`); 
-
-            dispatch({ type: DELETE_BUSINESS, payload: id })
-        } catch (err) {
-            dispatch({ type: BUSINESS_ERROR, payload: err.response.msg})
-        }
-    }
-
-    //Update Business
-    const updateBusiness = async business => {
-      const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
+  //Update Business
+  const updateBusiness = async (business) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
 
     try {
-        const res = await axios.put(`/api/businesses/${business._id}`, business, config); 
-        dispatch({ type: UPDATE_BUSINESS, payload: res.data })
+      const res = await axios.put(
+        `/api/businesses/${business._id}`,
+        business,
+        config
+      );
+      dispatch({ type: UPDATE_BUSINESS, payload: res.data });
     } catch (err) {
-        dispatch({ type: BUSINESS_ERROR, payload: err.response.msg})
+      dispatch({ type: BUSINESS_ERROR, payload: err.response.msg });
     }
-   
-    }
+  };
 
-    // Clear business
-    const clearBusinesses = () => {
-        dispatch({ type: CLEAR_BUSINESSES })
-    }
+  // Clear business
+  const clearBusinesses = () => {
+    dispatch({ type: CLEAR_BUSINESSES });
+  };
 
-    // Set Current business
-    const setCurrent = business => {
-        dispatch({type: SET_CURRENT, payload: business })  
-    }
+  // Set Current business
+  const setCurrent = (business) => {
+    dispatch({ type: SET_CURRENT, payload: business });
+  };
 
-    // Clear Current business
-    const clearCurrent = () => {
-        dispatch({type: CLEAR_CURRENT})  
-    }
+  // Clear Current business
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT });
+  };
 
+  // Filter business
+  const filterBusinesses = (text) => {
+    dispatch({ type: FILTER_BUSINESSES, payload: text });
+  };
 
-    // Filter business
-    const filterBusinesses = text => {
-        dispatch({type: FILTER_BUSINESSES, payload: text })  
-    }
+  //Clear filter
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
 
-    //Clear filter
-    const clearFilter = () => {
-        dispatch({type: CLEAR_FILTER})  
-    }
-    
-    return (
-        <BusinessContext.Provider
-            value={{
-                businesses: state.businesses,
-                current: state.current, 
-                filtered: state.filtered,
-                error: state.error, 
-                addBusiness,
-                deleteBusiness,
-                setCurrent,
-                clearCurrent,
-                updateBusiness,
-                filterBusinesses,
-                clearFilter,
-                getBusinesses,
-                clearBusinesses
-            }}
-            >
-                {props.children}
-            </BusinessContext.Provider>
-    );
+  return (
+    <BusinessContext.Provider
+      value={{
+        businesses: state.businesses,
+        current: state.current,
+        filtered: state.filtered,
+        error: state.error,
+        addBusiness,
+        deleteBusiness,
+        setCurrent,
+        clearCurrent,
+        updateBusiness,
+        filterBusinesses,
+        clearFilter,
+        getBusinesses,
+        clearBusinesses,
+      }}
+    >
+      {props.children}
+    </BusinessContext.Provider>
+  );
 };
 
 export default BusinessState;
