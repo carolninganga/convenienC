@@ -1,69 +1,46 @@
-import React from "react";
-// import logo from './logo.svg';
-//import LoginBtn from "./components/LoginBtn";
-import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import BusinessSignUp from "./pages/BusinessSignUp/BusinessSignUp";
-import BusinessConfirmation from "./pages/BusinessConfirmation/BusinessConfirmation";
-import BusinessConfirmationMessage from "./pages/ConfirmedMessagePage/ConfirmedMessagePage";
-import ManageBusinessGroceries from "./pages/ManageBusinessGroceries/ManageBusinessGroceries";
-import UserSignUp from "./pages/UserSignUp/UserSignUp";
-import Login from "./pages/Login/Login";
-import Home from "./pages/Home";
-import OurTeam from "./pages/OurTeam/OurTeam";
-import "./App.css";
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/pages/Home/Home';
+import About from './components/pages/About/About';
+import Navbar from './components/layouts/Navbar';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import Alerts from './components/layouts/Alerts';
+import PrivateRoute from './components/routing/PrivateRoute'
 
-class App extends React.Component {
-  state = {
-    user: {},
-    yelp: [],
-  };
+import ContactState from './context/contact/ContactState';
+import AuthState from './context/auth/AuthState';
+import AlertState from './context/alert/AlertState';
+import setAuthToken from './utils/setAuthToken';
+import './App.css';
 
-  componentDidMount() {}
-
-  setLoading = (val) => console.log(val);
-  setAlertInfo = (val) => console.log(val);
-
-  render() {
-    return (
-      <BrowserRouter>
-        {/* <LoginBtn />  */}
-
-        <Navbar />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={(props) => (
-              <Home {...props} user={this.state.user} yelp={this.state.yelp} />
-            )}
-          />
-
-          <Route
-            exact
-            path="/businessSignUp"
-            render={(props) => (
-              <BusinessSignUp
-                {...props}
-                setLoading={this.setLoading}
-                setAlertInfo={this.setAlertInfo}
-              />
-            )}
-          />
-
-          <Route
-            exact
-            path="/businessConfirmation"
-            component={BusinessConfirmation}
-          />
-          <Route exact path="/userSignUp" component={UserSignUp} />
-          <Route exact path="/businessConfirmationMessage" component={BusinessConfirmationMessage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/manageBusinessGroceries" component={ManageBusinessGroceries} />
-          <Route exact path="/ourTeam" component={OurTeam} />
-        </Switch>
-      </BrowserRouter>
-    );
-  }
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
 }
+
+const App = () => {
+  return (
+<AuthState>
+  <ContactState>
+    <AlertState>
+    <Router>
+      <Fragment>
+        <Navbar />
+          <div className="container">
+          <Alerts />
+            <Switch>
+              <PrivateRoute exact path='/' component={Home} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+              </Switch>
+          </div>
+      </Fragment>
+    </Router>
+    </AlertState>
+  </ContactState>
+</AuthState>
+  );
+}
+
 export default App;
