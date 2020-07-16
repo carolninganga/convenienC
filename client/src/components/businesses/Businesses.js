@@ -4,43 +4,51 @@ import BusinessContext from '../../context/business/BusinessContext';
 import Spinner from '../layouts/Spinner';
 import BusinessItem from './BusinessItem';
 
-
 const Businesses = () => {
-    const businessContext = useContext(BusinessContext);
+  const businessContext = useContext(BusinessContext);
 
-    const { businesses, filtered, getBusinesses, loading } = businessContext;
+  const { businesses, filtered, getBusinesses, loading } = businessContext;
 
-    useEffect(() => {
-        getBusinesses()
-        //eslint-disable-next-line
-    }, []);
+  useEffect(() => {
+    getBusinesses();
+    //eslint-disable-next-line
+  }, []);
 
-    if(businesses !== null && businesses.length === 0 && !loading) {
-        return <h4>Please add a Business</h4>
-    }
+  if (businesses !== null && businesses.length === 0 && !loading) {
+    return <h4>Please add a Business</h4>;
+  }
 
+  console.log(businesses);
 
-
-    return (
-        <Fragment>
-            {businesses !== null && !loading ? (
-                <TransitionGroup>
-            {filtered !== null
-             ? filtered.map( business => (
-                 <CSSTransition key={business._id} timeout={500} classNames="item">
-                <BusinessItem business={business} />
+  return (
+    <Fragment>
+      {businesses !== null && !loading ? (
+        <TransitionGroup>
+          {filtered !== null
+            ? filtered.map((business) => (
+                <CSSTransition
+                  key={business._id}
+                  timeout={500}
+                  classNames="item"
+                >
+                  <BusinessItem business={business} />
                 </CSSTransition>
-             ))
-            : businesses.map(business => (
-                <CSSTransition key={business._id} timeout={500} classNames="item">
-                <BusinessItem business={business} />
+              ))
+            : businesses.map((business) => (
+                <CSSTransition
+                  key={business._id}
+                  timeout={500}
+                  classNames="item"
+                >
+                  <BusinessItem business={business} />
                 </CSSTransition>
-            ))}
-            </TransitionGroup> 
-            ) : <Spinner />}
-                
-        </Fragment>
-    );
+              ))}
+        </TransitionGroup>
+      ) : (
+        <Spinner />
+      )}
+    </Fragment>
+  );
 };
 
 export default Businesses;

@@ -7,7 +7,7 @@ const BusinessItem = ({ business }) => {
     const businessContext = useContext(BusinessContext);
     const { deleteBusiness, setCurrent, clearCurrent } = businessContext;
 
-    const { _id, name, email, phone, type } = business;
+    const { _id, name, email, phone, zipcode, type } = business;
 
     const onDelete = () => {
         deleteBusiness(_id);
@@ -33,6 +33,11 @@ const BusinessItem = ({ business }) => {
                 {phone && (
                     <li>
                         <i className='fas fa-phone' /> {phone}
+                    </li>
+                )}
+                {zipcode && (
+                    <li>
+                       <i className="fas fa-map-marker-smile" /> {zipcode}
                     </li>
                 )}
             </ul>

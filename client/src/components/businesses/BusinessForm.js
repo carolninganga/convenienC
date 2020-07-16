@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 import BusinessContext from '../../context/business/BusinessContext';
 
 
@@ -15,7 +16,9 @@ const BusinessForm = () => {
                 name: '',
                 email:'',
                 phone: '',
-                type: 'toilet-paper'
+                zipcode: '',
+                type: 'toilet-paper',
+                essentialproduct: ''
             });
         }
     }, [businessContext, current]);
@@ -24,10 +27,12 @@ const BusinessForm = () => {
         name: '',
         email: '',
         phone: '',
-        type: 'toilet-paperl'
+        zipcode: '',
+        type: 'toilet-paperl',
+        //essentialproduct: ''
     });
 
-    const { name, email, phone, type } = business;
+    const { name, email, phone, type, zipcode, essentialproduct } = business;
 
     const onChange = e =>
         setBusiness({ ...business, [e.target.name]: e.target.value })
@@ -43,7 +48,9 @@ const BusinessForm = () => {
             name: '',
             email:'',
             phone: '',
-            type: 'toilet-paper'
+            zipcode: '',
+            type: 'toilet-paper',
+            //essentialproduct: ''
         });
     };
     
@@ -74,12 +81,16 @@ const BusinessForm = () => {
                 value={phone}
                 onChange={onChange}
                 /> 
+                <input
+                type='text'
+                placeholder='zipcode'
+                name='zipcode'
+                value={zipcode}
+                onChange={onChange}
+                /> 
                 <h5>Available Essential Product</h5> 
                 <input type="radio" name="type" value="toilet-paper" checked={type === 'toilet-paper'} onChange={onChange} />Toilet Paper{' '}
                 <input type="radio" name="type" value="bleach" checked={type === 'bleach'} onChange={onChange} />Bleach{' '}
-                {/* <input type="radio" name="type" value="personal" checked={type === 'personal'} onChange={onChange} />Personal{' '}
-                <input type="radio" name="type" value="personal" checked={type === 'personal'} onChange={onChange} />Personal{' '}
-                <input type="radio" name="type" value="professional" checked={type === 'professional'} onChange={onChange} /> Professional*/}
                 <div> 
                   <input type="submit" value={current ? 'Update Business' : 'Add Business'} className="btn btn-primary btn-block" />
                   </div>
@@ -90,6 +101,30 @@ const BusinessForm = () => {
                           </button>
                       </div>
                   )}
+
+                
+                      <div>
+                          <Link to='/landingpage' className="btn btn-light btn-block">
+                              Home
+                          </Link>
+                      </div>
+                
+
+                {/* <div className="row">
+                    <div className="form-group col">
+                    <p>Which skill do you want to share?</p>
+                    <select id="essentialproduct" name="essentialproduct" onChange={onChange} value={this.state.essentialproduct} className="form-control" required>
+                        <option disabled selected value>Select an option</option>
+                        <option value="JavaScript">Toilet Paper</option>
+                        <option value="Node.js">Bleach</option>
+                        <option value="Project Management">Lysol</option>
+                        <option value="SQL">Batteries</option>
+                        <option value="Python">Water</option>
+                        <option value="Skateboarding">Pizza</option>
+                        <option value="Access">icecream</option>
+                    </select>
+                    </div>
+                    </div> */}
         </form>
     );
 };

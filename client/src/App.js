@@ -4,12 +4,11 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import LandingPage from './components/pages/LandingPage';
 
-
 import Navbar from './components/layouts/Navbar';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alerts from './components/layouts/Alerts';
-import PrivateRoute from './components/routing/PrivateRoute'
+import PrivateRoute from './components/routing/PrivateRoute';
 
 import BusinessState from './context/business/BusinessState';
 import AuthState from './context/auth/AuthState';
@@ -23,28 +22,28 @@ if (localStorage.token) {
 
 const App = () => {
   return (
-<AuthState>
-  <BusinessState>
-    <AlertState>
-    <Router>
-      <Fragment>
-        <Navbar />
-          <div className="container">
-          <Alerts />
-            <Switch>
-              <PrivateRoute exact path='/' component={Home} />
-              <Route exact path='/landingPage' component={LandingPage} />
-              <Route exact path='/about' component={About} />
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/login' component={Login} />
-              </Switch>
-          </div>
-      </Fragment>
-    </Router>
-    </AlertState>
-  </BusinessState>
-</AuthState>
+    <AuthState>
+      <BusinessState>
+        <AlertState>
+          <Router>
+            <Fragment>
+              <Navbar />
+              <div className="container">
+                <Alerts />
+                <Switch>
+                  <PrivateRoute exact path="/" component={Home} />
+                  <Route exact path="/landingPage" component={LandingPage} />
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                </Switch>
+              </div>
+            </Fragment>
+          </Router>
+        </AlertState>
+      </BusinessState>
+    </AuthState>
   );
-}
+};
 
 export default App;
