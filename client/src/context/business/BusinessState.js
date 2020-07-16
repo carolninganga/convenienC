@@ -24,6 +24,8 @@ const BusinessState = (props) => {
     error: null,
   };
 
+  console.log(props)
+
   const [state, dispatch] = useReducer(BusinessReducer, initialState);
 
   // Get Business
