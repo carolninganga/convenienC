@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import ContactContext from '../../context/contact/ContactContext';
+import BusinessContext from '../../context/business/BusinessContext';
 
 
-const ContactItem = ({ contact }) => {
-    const contactContext = useContext(ContactContext);
-    const { deleteContact, setCurrent, clearCurrent } = contactContext;
+const BusinessItem = ({ business }) => {
+    const businessContext = useContext(BusinessContext);
+    const { deleteBusiness, setCurrent, clearCurrent } = businessContext;
 
-    const { _id, name, email, phone, type } = contact;
+    const { _id, name, email, phone, type } = business;
 
     const onDelete = () => {
-        deleteContact(_id);
+        deleteBusiness(_id);
         clearCurrent();
 
     };
@@ -20,7 +20,7 @@ const ContactItem = ({ contact }) => {
         <div className='card bg-light'>
             <h3 className='text-primary text-left'>
                 {name}{' '} <span style={{ float: 'right' }} 
-                    className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary' )}>
+                    className={'badge ' + (type === 'toilet-paper' ? 'badge-success' : 'badge-primary' )}>
                     {type.charAt(0).toUpperCase() + type.slice(1)}
                 </span>
             </h3>
@@ -37,7 +37,7 @@ const ContactItem = ({ contact }) => {
                 )}
             </ul>
             <p>
-                <button className="btn btn-dark btn-sm" onClick={() => setCurrent(contact)}>Edit</button>
+                <button className="btn btn-dark btn-sm" onClick={() => setCurrent(business)}>Edit</button>
                 <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button>
 
             </p>
@@ -45,8 +45,8 @@ const ContactItem = ({ contact }) => {
     )
 };
 
-ContactItem.propTypes = {
-    contact: PropTypes.object.isRequired
+BusinessItem.propTypes = {
+    business: PropTypes.object.isRequired
 };
 
-export default ContactItem;
+export default BusinessItem;

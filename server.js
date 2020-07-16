@@ -13,7 +13,7 @@ app.use(express.json());
 //Define Routes
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
-app.use("/api/contacts", require("./routes/contacts"));
+app.use("/api/businesses", require("./routes/businesses"));
 
 //serve static assets if in production
 if (process.env.NODE_ENV === "production") {

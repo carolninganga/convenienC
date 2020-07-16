@@ -1,10 +1,10 @@
 import React, { useContext, useEffect} from 'react';
 import Businesses from '../businesses/Businesses';
-import BusinessForm from '../businesses/BusinessForm';
+//import BusinessForm from '../businesses/BusinessForm';
 import BusinessFilter from '../businesses/BusinessFilter';
 import AuthContext from '../../context/auth/authContext';
 
- const Home = () => {
+ const LandingPage = () => {
      const authContext = useContext(AuthContext);
 
      useEffect(() => {
@@ -15,8 +15,8 @@ import AuthContext from '../../context/auth/authContext';
 
     return (
         <div className="grid-2">
-           <div><BusinessForm />
-           </div> 
+           {/* <div><BusinessForm />
+           </div>  */}
            <div>
                 <BusinessFilter />
                <Businesses />
@@ -25,4 +25,4 @@ import AuthContext from '../../context/auth/authContext';
     )
 }
 
-export default Home;
+export default LandingPage;
