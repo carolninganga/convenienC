@@ -1,49 +1,49 @@
 import React, { useState, useContext, useEffect } from 'react'
-import ContactContext from '../../context/contact/ContactContext';
+import BusinessContext from '../../context/business/BusinessContext';
 
 
-const ContactForm = () => {
-    const contactContext = useContext((ContactContext));
+const BusinessForm = () => {
+    const businessContext = useContext((BusinessContext));
 
-    const { addContact, updateContact, clearCurrent, current } = contactContext;
+    const { addBusiness, updateBusiness, clearCurrent, current } = businessContext;
 
     useEffect(() => {
         if(current !== null) {
-            setContact(current);
+            setBusiness(current);
         } else {
-            setContact({
+            setBusiness({
                 name: '',
                 email:'',
                 phone: '',
-                type: 'personal'
+                type: 'toilet-paper'
             });
         }
-    }, [contactContext, current]);
+    }, [businessContext, current]);
 
-    const [contact, setContact] = useState({
+    const [business, setBusiness] = useState({
         name: '',
         email: '',
         phone: '',
-        type: 'personal'
+        type: 'toilet-paperl'
     });
 
-    const { name, email, phone, type } = contact;
+    const { name, email, phone, type } = business;
 
     const onChange = e =>
-        setContact({ ...contact, [e.target.name]: e.target.value })
+        setBusiness({ ...business, [e.target.name]: e.target.value })
 
     const onSubmit = e => {
         e.preventDefault();
         if(current === null) {
-            addContact(contact);
+            addBusiness(business);
         } else {
-            updateContact(contact);
+            updateBusiness(business);
         }
-        setContact({
+        setBusiness({
             name: '',
             email:'',
             phone: '',
-            type: 'personal'
+            type: 'toilet-paper'
         });
     };
     
@@ -53,7 +53,7 @@ const ContactForm = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <h2 className='text-primary'>{current ? 'Edit Contact' : 'Add Contact'}</h2>
+            <h2 className='text-primary'>{current ? 'Edit Business' : 'Add Business'}</h2>
             <input
                 type='text'
                 placeholder='Name'
@@ -74,11 +74,14 @@ const ContactForm = () => {
                 value={phone}
                 onChange={onChange}
                 /> 
-                <h5>Contact Type</h5> 
+                <h5>Available Essential Product</h5> 
+                <input type="radio" name="type" value="toilet-paper" checked={type === 'toilet-paper'} onChange={onChange} />Toilet Paper{' '}
+                <input type="radio" name="type" value="bleach" checked={type === 'bleach'} onChange={onChange} />Bleach{' '}
+                {/* <input type="radio" name="type" value="personal" checked={type === 'personal'} onChange={onChange} />Personal{' '}
                 <input type="radio" name="type" value="personal" checked={type === 'personal'} onChange={onChange} />Personal{' '}
-                <input type="radio" name="type" value="professional" checked={type === 'professional'} onChange={onChange} /> Professional
-                 <div>
-                  <input type="submit" value={current ? 'Update Contact' : 'Add Contact'} className="btn btn-primary btn-block" />
+                <input type="radio" name="type" value="professional" checked={type === 'professional'} onChange={onChange} /> Professional*/}
+                <div> 
+                  <input type="submit" value={current ? 'Update Business' : 'Add Business'} className="btn btn-primary btn-block" />
                   </div>
                   {current && (
                       <div>
@@ -91,4 +94,4 @@ const ContactForm = () => {
     );
 };
 
-export default ContactForm;
+export default BusinessForm;

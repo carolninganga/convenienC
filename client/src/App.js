@@ -2,13 +2,16 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
+import LandingPage from './components/pages/LandingPage';
+
+
 import Navbar from './components/layouts/Navbar';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alerts from './components/layouts/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute'
 
-import ContactState from './context/contact/ContactState';
+import BusinessState from './context/business/BusinessState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import setAuthToken from './utils/setAuthToken';
@@ -21,7 +24,7 @@ if (localStorage.token) {
 const App = () => {
   return (
 <AuthState>
-  <ContactState>
+  <BusinessState>
     <AlertState>
     <Router>
       <Fragment>
@@ -30,6 +33,7 @@ const App = () => {
           <Alerts />
             <Switch>
               <PrivateRoute exact path='/' component={Home} />
+              <Route exact path='/landingPage' component={LandingPage} />
               <Route exact path='/about' component={About} />
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
@@ -38,7 +42,7 @@ const App = () => {
       </Fragment>
     </Router>
     </AlertState>
-  </ContactState>
+  </BusinessState>
 </AuthState>
   );
 }

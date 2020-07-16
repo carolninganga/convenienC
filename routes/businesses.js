@@ -7,15 +7,15 @@ const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator');
 
 const User = require('../models/User');
-const Contact = require('../models/Contact');
+const Business = require('../models/Business');
 
-//@route  GET api/contacts
-//@desc   Get all users contact
+//@route  GET api/businesses
+//@desc   Get all users businesses
 //acccess Private
 router.get('/', auth, async (req, res) => {
     try {
-        const contacts = await Contact.find({ user: req.user.id }).sort({ date: -1 })
-        res.json(contacts);
+        const businesses = await Business.find({ user: req.user.id }).sort({ date: -1 })
+        res.json(businesses);
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server Error")
@@ -23,8 +23,8 @@ router.get('/', auth, async (req, res) => {
 })
 
 
-//@route  POST api/contacts
-//@desc   Add new contact
+//@route  POST api/businesses
+//@desc   Add new business
 //acccess Private
 router.post('/', [ auth , [
     check('name', 'Name is required')
@@ -40,7 +40,7 @@ router.post('/', [ auth , [
     const { name, email, phone, type } = req.body;
 
     try {
-        const newContact = new Contact({
+        const newBusiness = new Business({
             name,
             email,
             phone,
@@ -48,44 +48,44 @@ router.post('/', [ auth , [
             user: req.user.id
         });
 
-        const contact = await newContact.save();
+        const business = await newBusiness.save();
 
-        res.json(contact);
+        res.json(business);
     } catch (err) {
-        console.error(er.message);
+        console.error(err.message);
         res.status(500).send('Server Error')
     }    
 })
 
 
-//@route  PUT api/contacts/:id
-//@desc   Update contact
+//@route  PUT api/business/:id
+//@desc   Update business
 //acccess Private
 router.put('/:id', auth, async (req, res) => {
     const { name, email, phone, type } = req.body;
 
-    // Build contact object
-    const contactFields = {};
-    if(name) contactFields.name = name;
-    if(email) contactFields.email = email;
-    if(phone) contactFields.phone = phone;
-    if(type) contactFields.type = type;
+    // Build business object
+    const businessFields = {};
+    if(name) businessFields.name = name;
+    if(email) businessFields.email = email;
+    if(phone) businessFields.phone = phone;
+    if(type) businessFields.type = type;
 
     try {
-        let contact = await Contact.findById(req.params.id);
+        let business = await Business.findById(req.params.id);
 
-        if(!contact) return res.status(404).json({ msg: 'Contact not found' });
+        if(!business) return res.status(404).json({ msg: 'business not found' });
 
-        //make sure user owns contact
-        if(contact.user.toString() !== req.user.id) {
+        //make sure user owns business
+        if(business.user.toString() !== req.user.id) {
             return res.status(401).json({ msg: 'Not authorized' });
         }
 
-        contact = await Contact.findByIdAndUpdate(req.params.id,
-            { $set: contactFields },
+        business = await Business.findByIdAndUpdate(req.params.id,
+            { $set: businessFields },
             { new: true });
 
-            res.json(contact);
+            res.json(business);
     } catch (err) {
         console.error(er.message);
         res.status(500).send('Server Error');
@@ -94,23 +94,23 @@ router.put('/:id', auth, async (req, res) => {
 
 });
 
-//@route  DELETE api/contacts/:id
-//@desc   Delete contact
+//@route  DELETE api/business/:id
+//@desc   Delete business
 //acccess Private
 router.delete('/:id', auth, async (req, res) => {
     try {
-        let contact = await Contact.findById(req.params.id);
+        let business = await business.findById(req.params.id);
 
-        if(!contact) return res.status(404).json({ msg: 'Contact not found' });
+        if(!business) return res.status(404).json({ msg: 'Business not found' });
 
-        //make sure user owns contact
-        if(contact.user.toString() !== req.user.id) {
+        //make sure user owns business
+        if(business.user.toString() !== req.user.id) {
             return res.status(401).json({ msg: 'Not authorized' });
         }
 
-        await Contact.findByIdAndRemove(req.params.id);
+        await Business.findByIdAndRemove(req.params.id);
 
-            res.json({ msg: "Contact removed" });
+            res.json({ msg: "Business removed" });
     } catch (err) {
         console.error(er.message);
         res.status(500).send('Server Error');
