@@ -1,19 +1,19 @@
 import React, { Fragment, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
-import ContactContext from '../../context/contact/ContactContext';
+import BusinessContext from '../../context/business/BusinessContext';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Navbar = ({ title, icon }) => {
     const authContext = useContext(AuthContext);
-    const contactContext = useContext(ContactContext);
+    const businessContext = useContext(BusinessContext);
 
     const { isAuthenticated, logout, user } = authContext;
-    const { clearContacts } = contactContext;
+    const { clearBusinesses } = businessContext;
 
     const onLogout = () => {
         logout();
-        clearContacts();
+        clearBusinesses();
     }
 
     const authLinks = (
@@ -30,10 +30,10 @@ const Navbar = ({ title, icon }) => {
     const guestLinks = (
         <Fragment>
              <li>
-                <Link to='/register'>Register</Link>
+                <Link to='/register'>Business Register</Link>
             </li>
             <li>
-                <Link to='/login'>Login</Link>
+                <Link to='/login'>Business Login</Link>
             </li>
             <li>
                 <Link to='/about'>About</Link>
@@ -61,7 +61,7 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-    title: 'Contact Keeper',
+    title: 'ConvenienC',
     icon: 'fas fa-id-card-alt'
 }
 

@@ -1,0 +1,13 @@
+.container-fluid{
+   text-align: center;
+   margin-top:100px;
+   margin-bottom:100px;
+   color:rgb(130, 210, 183);
+}
+.user{
+   word-break: break-all;
+   overflow-wrap: break-word;
+   max-width: 200px;
+   margin: auto;
+   display: block;
+}

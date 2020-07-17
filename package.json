@@ -1,7 +1,7 @@
 {
-  "name": "contact-keeper",
+  "name": "convenienc",
   "version": "1.0.0",
-  "description": "contact manager keeper",
+  "description": "business search app",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carolninganga/contact-keeper.git"
+    "url": "git+https://github.com/carolninganga/convenience-keeper.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/carolninganga/contact-keeper/issues"
+    "url": "https://github.com/carolninganga/convenience-keeper/issues"
   },
-  "homepage": "https://github.com/carolninganga/contact-keeper#readme",
+  "homepage": "https://github.com/carolninganga/convenience-keeper#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.2.0",
