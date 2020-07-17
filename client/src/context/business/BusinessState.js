@@ -24,7 +24,7 @@ const BusinessState = (props) => {
     error: null,
   };
 
-  console.log(props)
+  console.log(props);
 
   const [state, dispatch] = useReducer(BusinessReducer, initialState);
 
@@ -48,10 +48,11 @@ const BusinessState = (props) => {
     };
 
     try {
-      const res = await axios.post('/api/businesses', business, config);
+      const res = await axios.post('/api/businesses', business);
+      console.log(res);
       dispatch({ type: ADD_BUSINESS, payload: res.data });
     } catch (err) {
-      dispatch({ type: BUSINESS_ERROR, payload: err.response.msg });
+      dispatch({ type: BUSINESS_ERROR, payload: err.message });
     }
     // business.id = "id" + Math.random().toString(16).slice(2);
   };

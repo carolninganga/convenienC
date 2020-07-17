@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Businesses from '../businesses/Businesses';
+import BusinessFilter from '../businesses/BusinessFilter';
 
 const About = () => {
     return (
@@ -9,6 +11,10 @@ const About = () => {
             <p className='bg-dark p'>
                 <strong>Version: </strong> 1.0.0
             </p>
+            <div>
+                <BusinessFilter />
+               <Businesses />
+           </div>
         </div>
     )
 }
