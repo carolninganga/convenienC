@@ -41,6 +41,8 @@ router.post(
     try {
       const business = await Business.create(req.body);
 
+      business.populate('items')
+
       res.json(business);
     } catch (err) {
       console.error(err.message);
