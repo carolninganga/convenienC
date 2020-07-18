@@ -30,10 +30,15 @@ body {
   max-width: 80%;
   margin: auto;
   margin-top: 10%;
+  margin-bottom: 20px;
   padding: 20px;
   border-radius: 30px;
   border-color: rgb(83, 46, 126);
   border-style: solid;
+}
+
+.registration-form:hover {
+  box-shadow: 10px 10px 5px rgb(83, 46, 126, 0.5);
 }
 
 .signUpBtn:hover {
