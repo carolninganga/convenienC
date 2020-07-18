@@ -1,8 +1,10 @@
+/* this home-page css is also showing up on /login path */
+
 .home-page {
   position: relative;
   height: 100vh;
   width: 100%;
-  z-index: -1;
+  /* z-index: -1; */
   background-image: linear-gradient(
       to bottom,
       rgba(245, 246, 252, 0.52),
@@ -16,4 +18,6 @@
   align-items: center;
 }
 
-/* this css is also showing up on /login path */
+.main-landing {
+  margin-top: -300px;
+}

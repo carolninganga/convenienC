@@ -15,7 +15,7 @@ const LandingPage = () => {
 
   return (
     <div className="home-page">
-      <div className="grid-2">
+      <div className="grid-2 main-landing">
         {/* <div><BusinessForm />
            </div>  */}
         <div>
