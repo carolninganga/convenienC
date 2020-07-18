@@ -19,6 +19,8 @@ router.get('/', auth, async (req, res) => {
       .sort({
         date: -1,
       });
+
+      console.log(businesses);
       
     res.json(businesses);
   } catch (err) {

@@ -34,18 +34,20 @@ const Register = (props) => {
 
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (name === '' || email === '' || password === '') {
-      setAlert('Please enter all fields', 'danger');
-    } else if (password !== password2) {
-      setAlert('Passwords do not match', 'danger');
-    } else {
-      register({
-        name,
-        email,
-        password,
-      });
+
+    const onSubmit = e => {
+        e.preventDefault();
+        if(name === '' || email === '' || password === '') {
+            setAlert('Please enter all fields', 'danger')
+        } else if (password !== password2) {
+            setAlert('Passwords do not match', 'danger');
+        } else {
+            register({
+                name,
+                email,
+                password
+            },props.history.push('/businessVerification'));
+
     }
   };
   return (

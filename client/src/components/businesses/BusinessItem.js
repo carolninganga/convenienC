@@ -7,6 +7,9 @@ const BusinessItem = ({ business }) => {
   const { deleteBusiness, setCurrent, clearCurrent } = businessContext;
 
   const { _id, name, email, phone, zipcode, items } = business;
+  //console.log('test', business)
+  //console.log('test2', items)
+
 
   const onDelete = () => {
     deleteBusiness(_id);

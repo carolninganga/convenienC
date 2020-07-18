@@ -46,7 +46,7 @@ const AuthState = props => {
 
     // Register User 
 
-    const register = async formData => {
+    const register = async (formData, cf) => {
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ const AuthState = props => {
                 type: REGISTER_SUCCESS,
                 payload: res.data
             })
-            loadUser();
+            loadUser().then(cf);
         } catch (err) {
             dispatch({
                 type: REGISTER_FAIL,
