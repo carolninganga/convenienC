@@ -3,38 +3,48 @@ import ImageUploader from 'react-images-upload';
 import './BusinessVerification.css';
 
 class BusinessVerification extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { pictures: [] };
-    this.onDrop = this.onDrop.bind(this);
-  }
 
-  onDrop(picture) {
-    this.setState({
-      pictures: this.state.pictures.concat(picture),
-    });
-  }
+    constructor(props) {
+        super(props);
+         this.state = { pictures: [], showSubmitButton: false };
+         this.onDrop = this.onDrop.bind(this);
+    }
+ 
+    onDrop(picture) {
+        console.log(picture)
+        if(picture.length === 0){
+            this.setState({
+                showSubmitButton: false
+            })
+        } else {
+            this.setState({ 
+                showSubmitButton: true 
+            })
+        }
 
-  render() {
-    return (
-      <div
-        className="verification-bin"
-        style={{ width: '75%', marginTop: '20%' }}
-      >
-        <h3 className="title">
-          Please upload your business verification certificate
-        </h3>
-        <ImageUploader
-          className="image-upload"
-          withIcon={true}
-          buttonText="Choose images"
-          onChange={this.onDrop}
-          imgExtension={['.jpg', '.gif', '.png', '.gif']}
-          maxFileSize={5242880}
-        />
-      </div>
-    );
-  }
+    
+        this.setState({
+            pictures: this.state.pictures.concat(picture),
+        });
+    }
+ 
+    render() {
+        return (
+            <div className="container" style={{ width:'75%', marginTop:'20%'}}>
+            <h3 className="title">Please upload your business verification certificate</h3>
+            <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+                withPreview={true}
+            />
+            {this.state.showSubmitButton ? <button id="btn1" className='btn btn-primary' onClick={()=> this.props.history.push('/')}>submit</button> : ""} 
+            </div>
+        );
+    }
+
 }
 
 export default BusinessVerification;

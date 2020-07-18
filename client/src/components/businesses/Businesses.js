@@ -11,6 +11,7 @@ const Businesses = () => {
 
   useEffect(() => {
     getBusinesses();
+    console.log("123", businesses)
     //eslint-disable-next-line
   }, []);
 
