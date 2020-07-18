@@ -1,0 +1,37 @@
+.about-bin {
+  background-color: white;
+  max-width: 60%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 30px;
+  border-color: rgb(83, 46, 126);
+  border-style: solid;
+}
+
+.bio-bin {
+  background-color: white;
+  max-width: 90%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 30px;
+  border-color: rgb(83, 46, 126);
+  border-style: solid;
+}
+
+h1 {
+  font-size: 5vw;
+}
+
+h2 {
+  text-align: center;
+  font-size: 4vw;
+}
+p {
+  font-size: 2vw;
+}
+
+.bio-img {
+  border-radius: 100px;
+}

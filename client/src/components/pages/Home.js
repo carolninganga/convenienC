@@ -3,6 +3,7 @@ import Businesses from '../businesses/Businesses';
 import BusinessForm from '../businesses/BusinessForm';
 import BusinessFilter from '../businesses/BusinessFilter';
 import AuthContext from '../../context/auth/authContext';
+import './Home.css';
 
 const Home = () => {
   const authContext = useContext(AuthContext);
