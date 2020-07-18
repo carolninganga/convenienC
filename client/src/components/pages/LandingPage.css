@@ -1,0 +1,19 @@
+.home-page {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(245, 246, 252, 0.52),
+      rgb(83, 46, 126)
+    ),
+    url('../../store.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* this css is also showing up on /login path */
