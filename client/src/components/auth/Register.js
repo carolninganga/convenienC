@@ -45,7 +45,7 @@ const Register = props => {
                 name,
                 email,
                 password
-            });
+            },props.history.push('/businessVerification'));
     }
 };
     return (

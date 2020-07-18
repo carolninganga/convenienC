@@ -31,6 +31,7 @@
     "express-validator": "^6.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.20",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "react-images-upload": "^1.2.8"
   }
 }

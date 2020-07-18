@@ -49,13 +49,14 @@ const BusinessForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(business);
+    //console.log(business);
 
     if (current === null) {
       addBusiness(business);
     } else {
       updateBusiness(business);
     }
+    console.log(initialState);
     setBusiness(initialState);
   };
 
@@ -77,7 +78,7 @@ const BusinessForm = () => {
       if (response.status !== 200) throw new Error('Error');
 
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       setItems([...items, data]);
     } catch (error) {
       console.warn(error.message);
