@@ -49,14 +49,13 @@ const BusinessForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    //console.log(business);
-
+    console.log(business)
     if (current === null) {
       addBusiness(business);
     } else {
       updateBusiness(business);
     }
-    console.log(initialState);
+  
     setBusiness(initialState);
   };
 

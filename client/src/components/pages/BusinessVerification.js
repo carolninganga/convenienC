@@ -5,11 +5,23 @@ class BusinessVerification extends Component {
  
     constructor(props) {
         super(props);
-         this.state = { pictures: [] };
+         this.state = { pictures: [], showSubmitButton: false };
          this.onDrop = this.onDrop.bind(this);
     }
  
     onDrop(picture) {
+        console.log(picture)
+        if(picture.length === 0){
+            this.setState({
+                showSubmitButton: false
+            })
+        } else {
+            this.setState({ 
+                showSubmitButton: true 
+            })
+        }
+
+    
         this.setState({
             pictures: this.state.pictures.concat(picture),
         });
@@ -25,7 +37,9 @@ class BusinessVerification extends Component {
                 onChange={this.onDrop}
                 imgExtension={['.jpg', '.gif', '.png', '.gif']}
                 maxFileSize={5242880}
+                withPreview={true}
             />
+            {this.state.showSubmitButton ? <button id="btn1" className='btn btn-primary' onClick={()=> this.props.history.push('/')}>submit</button> : ""} 
             </div>
         );
     }
