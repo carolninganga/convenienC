@@ -9,6 +9,10 @@
   border-style: solid;
 }
 
+.input-form:hover {
+  box-shadow: 10px 10px 5px rgba(83, 46, 126, 0.5);
+}
+
 .signUpBtn:hover {
   transform: translate(0px, 2px);
   letter-spacing: 0.1em;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ImageUploader from 'react-images-upload';
- 
+import './BusinessVerification.css';
+
 class BusinessVerification extends Component {
- 
+
     constructor(props) {
         super(props);
          this.state = { pictures: [], showSubmitButton: false };
@@ -43,6 +44,7 @@ class BusinessVerification extends Component {
             </div>
         );
     }
+
 }
 
 export default BusinessVerification;
