@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const BusinessSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'user',
   },
   name: {
     type: String,

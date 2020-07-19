@@ -49,13 +49,14 @@ const BusinessForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(business)
+    //console.log(business);
+
     if (current === null) {
       addBusiness(business);
     } else {
       updateBusiness(business);
     }
-  
+    console.log(initialState);
     setBusiness(initialState);
   };
 
@@ -136,12 +137,6 @@ const BusinessForm = () => {
           value={zipcode}
           onChange={onChange}
         />
-        {/* <input
-        key={item.id}
-        Item={Item.itemName}
-        value={Item.val}
-        getItems={this.getItems}
-        /> */}
         <h5>Available Essential Product</h5>
         {items.map((element, index) => (
           <div key={index + '-element'}>
@@ -151,28 +146,6 @@ const BusinessForm = () => {
         ))}
                 
              
-                    
-                          
-                    
-            
-                  
-                        
-        {/* <input
-          type="radio"
-          name="type"
-          value="toilet-paper"
-          checked={type === 'toilet-paper'}
-          onChange={onChange}
-        />
-        Toilet Paper{' '}
-        <input
-          type="radio"
-          name="type"
-          value="bleach"
-          checked={type === 'bleach'}
-          onChange={onChange}
-        />
-        Bleach{' '} */}
         <div>
           <input
             type="submit"
@@ -192,21 +165,6 @@ const BusinessForm = () => {
             Home
           </Link>
         </div>
-        {/* <div className="row">
-                    <div className="form-group col">
-                    <p>Which skill do you want to share?</p>
-                    <select id="essentialproduct" name="essentialproduct" onChange={onChange} value={this.state.essentialproduct} className="form-control" required>
-                        <option disabled selected value>Select an option</option>
-                        <option value="JavaScript">Toilet Paper</option>
-                        <option value="Node.js">Bleach</option>
-                        <option value="Project Management">Lysol</option>
-                        <option value="SQL">Batteries</option>
-                        <option value="Python">Water</option>
-                        <option value="Skateboarding">Pizza</option>
-                        <option value="Access">icecream</option>
-                    </select>
-                    </div>
-                    </div> */}
       </form>
     </>
   );

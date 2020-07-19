@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
-
+const ObjectId = require('mongoDb').ObjectID;
 //const { check, validationResult } = require('express-validator/check');
 
 const { check, validationResult } = require('express-validator');
@@ -20,7 +20,6 @@ router.get('/', auth, async (req, res) => {
         date: -1,
       });
 
-      console.log(businesses);
       
     res.json(businesses);
   } catch (err) {
@@ -42,10 +41,10 @@ router.post(
     }
     try {
       const business = await Business.create(req.body);
+      await business.populate('items').execPopulate() 
+      
 
-      business.populate('items')
-
-      res.json(business);
+      res.json(business); 
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');
@@ -68,9 +67,10 @@ router.put('/:id', auth, async (req, res) => {
 
   try {
     const business = await Business.findOne({
-      _id: req.params.id,
-      user: req.user.id,
-    });
+      '_id': ObjectId(req.params.id),
+      
+      //user: ObjectId(req.user.id),
+    }).exec();
     if (!business) return res.status(404).json({ msg: 'business not found' });
 
     //make sure user owns business
@@ -85,6 +85,8 @@ router.put('/:id', auth, async (req, res) => {
     // );
 
     Object.keys(req.body).forEach((key) => (business[key] = req.body[key]));
+    console.log("io",req.body )
+    console.log(business)
     await business.save();
 
     res.json(business);

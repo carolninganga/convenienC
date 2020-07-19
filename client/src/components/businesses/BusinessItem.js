@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import BusinessContext from '../../context/business/BusinessContext';
 
@@ -6,27 +6,10 @@ const BusinessItem = ({ business }) => {
   const businessContext = useContext(BusinessContext);
   const { deleteBusiness, setCurrent, clearCurrent } = businessContext;
 
-  const { _id, name, email, phone, zipcode, items } = business;
+  const { name, email, phone, zipcode, items } = business;
   
-  //console.log('test', business)
-  //console.log('test2', items)
-
-// useEffect(async () => {
-//   try {
-//     const response = await fetch('/api/items');
-//     if (response.status !== 200) throw new Error('Error');
-
-//     const data = await response.json();
-//     console.log(data);
-//     items=(data.filter( e => items.some(e._id)));
-//   } catch (error) {
-//     console.warn(error.message);
-//   }
-
-// })
-
   const onDelete = () => {
-    deleteBusiness(_id);
+    // deleteBusiness(_id);
     clearCurrent();
   };
 
@@ -53,7 +36,7 @@ const BusinessItem = ({ business }) => {
           <li> 
             <ul>
             {items.map( item => <li>
-            <i className="fas" /> {item}
+            <i className="fas" /> {item.name}
             </li>)}
             </ul>
           </li> 
