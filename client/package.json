@@ -2,16 +2,27 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.14.5",
+    "node": "12.16.3"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "json-loader": "^0.5.7",
+    "ra-core": "^3.7.1",
+    "ra-data-fakerest": "^3.6.2",
+    "ra-data-json-server": "^3.7.0",
+    "ra-data-simple-rest": "^3.5.5",
     "react": "^16.13.1",
+    "react-admin": "^3.7.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "uuid": "^8.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://127.0.0.1:5000"
+  "proxy": "http://localhost:5000"
 }

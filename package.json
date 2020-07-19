@@ -1,8 +1,12 @@
 {
-  "name": "convenienc",
+  "name": "react-skillshare-squad",
   "version": "1.0.0",
-  "description": "business search app",
+  "description": "skillsharesquad - exchange and share skills",
   "main": "server.js",
+  "engines": {
+    "npm": "6.14.5",
+    "node": "12.16.3"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
@@ -14,26 +18,41 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carolninganga/convenience-keeper.git"
+    "url": "https://git.heroku.com/react-skillshare-squad.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/carolninganga/convenience-keeper/issues"
+    "url": "https://github.com/PhoebeYahengWu/react-skillshare-squad/issues"
   },
-  "homepage": "https://github.com/carolninganga/convenience-keeper#readme",
+  "homepage": "https://github.com/PhoebeYahengWu/react-skillshare-squad#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
-    "concurrently": "^5.2.0",
     "config": "^3.3.1",
+    "connected-react-router": "^6.8.0",
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
     "json-loader": "^0.5.7",
     "jsonwebtoken": "^8.5.1",
+    "leaflet": "^1.6.0",
+    "mdbreact": "^4.27.0",
     "mongoose": "^5.9.20",
-    "nodemon": "^2.0.4",
-    "react-images-upload": "^1.2.8"
+    "ra-core": "^3.7.1",
+    "ra-data-fakerest": "^3.6.2",
+    "ra-data-json-server": "^3.7.1",
+    "ra-data-simple-rest": "^3.7.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-images-upload": "^1.2.8",
+    "react-leaflet": "^2.7.0",
+    "react-mail-form": "^2.1.0",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
   }
 }

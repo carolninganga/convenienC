@@ -39,7 +39,7 @@ class BusinessVerification extends Component {
                 maxFileSize={5242880}
                 withPreview={true}
             />
-            {this.state.showSubmitButton ? <button id="btn1" className='btn btn-primary' onClick={()=>{this.props.history.push('/businessProfile'); alert("Your certificate has been uploaded successfull")}}>submit</button> : ""} 
+            {this.state.showSubmitButton ? <button id="btn1" className='btn btn-primary' onClick={()=>{this.props.history.push('/profile'); alert("Your certificate has been uploaded successfull")}}>submit</button> : ""} 
             </div>
         );
     }

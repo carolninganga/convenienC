@@ -1,51 +1,33 @@
-import React from 'react';
-import Businesses from '../businesses/Businesses';
-import Caroline from './Caroline.jpeg';
-import Abir from './Abir.jpeg';
-import Nick from './Nick.jpeg';
-import './About.css';
+import React from 'react'
+import Team from '../layout/Team/Team';
+import ReactContactForm from 'react-mail-form';
+import Footer from '../layout/Footer/Footer';
 
 const About = () => {
-  return (
-    <div>
-      <div className="about-bin">
-        <h1>About This App</h1>
-        <p className="my-1">
-          This is a Full Stack Application that allows local businesses to post
-          and delete current available items{' '}
-        </p>
-        <p className="bg-dark p">
-          <strong>Version: </strong> 1.0.0
-        </p>
-        {/* <div>
-                <BusinessFilter />
-               <Businesses />
-           </div> */}
-      </div>
-      <div className="bio-bin">
-        <div className="row">
-          <div className="col-4">
-            <img className="bio-img" src={Caroline} />
-            <h2>Caroline</h2>
-            <p>
-              Caroline is a rockstar full-stack web developer and master of
-              boilerplate.
-            </p>
+    return (
+        <div>
+          <h1 className="text-center mt-3">About SkillShareSquad</h1>
+          <p className="my-1">
+          SkillShareSquad is an application that allows people around the world to share their known skills with one another.
+          </p>
+
+          <h1 className="text-center mt-4">Our Team</h1>
+          <h4 className="text-center">Meet Our Awesome Team Members</h4>
+          <div className="row">
+          <div className="col-md-6">
+          <Team />
           </div>
-          <div className="col-4">
-            <img className="bio-img" src={Abir} />
-            <h2>Abir</h2>
-            <p>Abir is a full-stack web developer and refactoring wiz.</p>
+          <div className="col-md-6">
+          <Team />
           </div>
-          <div className="col-4">
-            <img className="bio-img" src={Nick} />
-            <h2>Nick</h2>
-            <p>Nick is a full-stack web developer and css sleuth.</p>
+  
           </div>
+
+          <h1 className="text-center mt-3">Questions? Comments? Contact Us!</h1>
+          <ReactContactForm to = "josephine@funksoup.com" titlePlaceholder = "Subject" contentsPlaceholder = "Message" />
+          <Footer />
         </div>
-      </div>
-    </div>
-  );
-};
+    )
+}
 
 export default About;

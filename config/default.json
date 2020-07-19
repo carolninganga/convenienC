@@ -1,4 +1,6 @@
+
 {
-    "mongoURI": "mongodb+srv://carol:<carol>@convieniec.ijoeb.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://carolninganga:1234@contact-app.5yyg7.mongodb.net/<dbname>?retryWrites=true&w=majority",
     "jwtSecret": "secret"
 }
+
