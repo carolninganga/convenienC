@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import BusinessContext from '../../context/business/BusinessContext';
 import Spinner from '../layouts/Spinner';
 import BusinessItem from './BusinessItem';
+import BusinessForm from './BusinessForm';
 
 const Businesses = () => {
   const businessContext = useContext(BusinessContext);
@@ -33,6 +34,7 @@ const Businesses = () => {
                   classNames="item"
                 >
                   <BusinessItem business={business} />
+                  <BusinessForm />
                 </CSSTransition>
               ))
             : businesses.map((business) => (

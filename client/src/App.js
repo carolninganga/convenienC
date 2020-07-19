@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
-import LandingPage from './components/pages/LandingPage';
 import BusinessVerification from './components/pages/BusinessVerification';
-import BusinessItem from './components/businesses/BusinessItem';
+import BusinessProfile from './components/pages/BusinessProfile';
+// import BusinessItem from './components/businesses/BusinessItem';
 
 import Navbar from './components/layouts/Navbar';
 import Register from './components/auth/Register';
@@ -34,10 +34,9 @@ const App = () => {
                 <Alerts />
                 <Switch>
                   <PrivateRoute exact path="/" component={Home} />
-                  <Route exact path="/landingPage" component={LandingPage} />
                   <Route exact path="/businessVerification" component={BusinessVerification} />
+                  <Route exact path="/businessProfile" component={BusinessProfile} />
                   <Route exact path="/about" component={About} />
-                  <Route exact path="/businessItem" component={BusinessItem} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
                 </Switch>

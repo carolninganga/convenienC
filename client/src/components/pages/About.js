@@ -1,6 +1,5 @@
 import React from 'react';
 import Businesses from '../businesses/Businesses';
-import BusinessFilter from '../businesses/BusinessFilter';
 import Caroline from './Caroline.jpeg';
 import Abir from './Abir.jpeg';
 import Nick from './Nick.jpeg';

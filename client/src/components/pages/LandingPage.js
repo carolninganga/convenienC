@@ -1,60 +1,29 @@
+import React, { Component } from 'react'
 
-import React, { useContext } from 'react';
-import BusinessItem from '../businesses/BusinessItem';
-import BusinessContext from '../../context/business/BusinessContext';
-import Businesses from '../businesses/Businesses';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Spinner from '../../components/layouts/Spinner';
-import BusinessFilter from '../businesses/BusinessFilter';
-import './LandingPage.css';
+ class LandingPage extends Component {
+  render() {
+    return (
+      <div className="container landingpageContainer">
+        <div className="text-center">
+          <h3 className="businessName">{this.props.location.query.name}</h3>
+          <ul className="list">
+            <li><i className="fas fa-envelope-open" /> {this.props.location.query.email}</li>
+            <li><i className="fas fa-phone" /> {this.props.location.query.phone}</li>
+            <li><i className="fas fa-map-marker-smile" /> {this.props.location.zipcode}</li>
+            {/* <li> 
+            <ul>
+            {items.map( item => <li>
+            <i className="fas" /> {this.props.location.query.item.name}
+            </li>)}
+            </ul>
+          </li> */}
+          </ul> 
 
-
-const LandingPage = () => {
-  const businessContext = useContext(BusinessContext);
-
-  const { businesses, filtered, getBusinesses, loading } = businessContext;
-  //  const authContext = useContext(AuthContext);
-
-  //  useEffect(() => {
-  //      authContext.loadUser();
-  //      // eslint-disable-next-line-next
-  //  }, []);
-
-  return (
-    <div className="home-page">
-      <div className="grid-2">
-  
-        <div>
-          <BusinessFilter />
-          {businesses !== null && !loading ? (
-        <TransitionGroup>
-          {filtered !== null
-            ? filtered.map((business) => (
-                <CSSTransition
-                  key={business._id}
-                  timeout={500}
-                  classNames="item"
-                >
-                  <BusinessItem business={business} />
-                </CSSTransition>
-              ))
-            : businesses.map((business) => (
-                <CSSTransition
-                  key={business._id}
-                  timeout={500}
-                  classNames="item"
-                >
-                  <BusinessItem business={business} />
-                </CSSTransition>
-              ))}
-        </TransitionGroup>
-      ) : (
-        <Spinner />
-      )}
-        </div>
+        </div>   
       </div>
-    </div>
-  );
-};
+    )
+  }
+}
 
 export default LandingPage;
+

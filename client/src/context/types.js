@@ -20,4 +20,3 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const BUSINESS_ERROR = 'BUSINESS_ERROR';
 
 
-export const ITEM_ERROR = 'BUSINESS_ERROR';
