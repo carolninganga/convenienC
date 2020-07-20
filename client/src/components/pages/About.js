@@ -23,9 +23,9 @@ const About = () => {
   
           </div>
 
-          <h1 className="text-center mt-3">Questions? Comments? Contact Us!</h1>
+          {/* <h1 className="text-center mt-3">Questions? Comments? Contact Us!</h1>
           <ReactContactForm to = "josephine@funksoup.com" titlePlaceholder = "Subject" contentsPlaceholder = "Message" />
-          <Footer />
+          <Footer /> */}
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import React, { useContext,useEffect } from 'react'
-import AuthContext from '../../context/auth/authContext'
+import React, { useContext,useEffect } from 'react';
+import AuthContext from '../../context/auth/authContext';
 import Card from '../layout/Card/Card';
 const Home = () => {
     const authContext = useContext(AuthContext);
@@ -9,7 +9,9 @@ const Home = () => {
         // eslint-disable-next-line
     },[])
     return (
+        <div>                 
             <Card />
+            </div>
     )
 }
 
